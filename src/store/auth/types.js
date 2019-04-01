@@ -1,0 +1,6 @@
+export const AUTH = {
+    RUNNING: 'AUTH/LOADING',
+    SUCCESS: 'AUTH/SUCCESS',
+    ERROR: 'AUTH/FAIL',
+    LOADTHEME: 'AUTH/LOADTHEME'
+}

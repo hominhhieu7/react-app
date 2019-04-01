@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import {withRouter} from 'react-router-dom'
+// import { connect } from 'react-redux';
+// import { login } from '../store/auth/action';
 class LoginPage extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
     }
-    handleLogin(event) {
-        debugger
-        alert("Username: " + this.username.value + " Password: " + this.password.value);
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
+        console.log(this.props);
+    }
+    componentDidMount(){
+        console.log(this.props);
+    }
+    handleLogin = () => {
+         this.props.login(this.username.value, this.password.value);
+         this.props.history.push("/home");
     }
     render() {
         return (
@@ -31,4 +41,15 @@ class LoginPage extends Component {
         );
     }
 }
-export default LoginPage
+
+
+// const mapStateToProps = (state) => ({
+
+// })
+
+// const mapDispatchToProps = {
+//     login: login
+// }
+// export default connect(mapStateToProps, mapDispatchToProps)(LoginPage)
+
+export default withRouter(LoginPage)

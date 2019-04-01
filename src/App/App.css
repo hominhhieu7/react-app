@@ -7,7 +7,12 @@
   height: 40vmin;
   pointer-events: none;
 }
-
+.background-mode1{
+  background-color: black !important;
+}
+.background-mode2{
+  background-color: blueviolet !important;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
