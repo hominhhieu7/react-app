@@ -21,7 +21,7 @@ const styles = {
     },
 };
 
-function RenderUser({datauser}) {
+function RenderUser({ datauser }) {
     if (datauser.username) {
         return (
             <div>
@@ -31,9 +31,7 @@ function RenderUser({datauser}) {
     }
     else {
         return (
-            <div>
-
-            </div>
+            <Link to="/login"> <Button color="inherit">Login</Button></Link>
         );
     }
 }
@@ -42,25 +40,30 @@ class Header extends React.Component {
     render() {
         const { classes } = this.props;
         const background = {
-            backgroundColor: this.props.theme
+            backgroundColor: this.props.theme,
+            paddingLeft: 241,
         }
         return (
-            <div className={classes.root} >
-                <div>
-                    <AppBar position="static" style={background}>
-                        <Toolbar>
-                            <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                                <MenuIcon />
-                            </IconButton>
-                            <Typography variant="h6" color="inherit" className={classes.grow}>
-                                <Link to="/home">Home</Link>
-                            </Typography>                                
-                            <RenderUser datauser={this.props.datauser} />
-                            <Link to="/login"> <Button color="inherit">Login</Button></Link>
-                        </Toolbar>
-                    </AppBar>
+            <div className="row">
+                <div className="col-12 col-sm-12">
+                    <div className={classes.root} >
+                        <div>
+                            <AppBar position="static" style={background}>
+                                <Toolbar>
+                                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
+                                        <MenuIcon />
+                                    </IconButton>
+                                    <Typography variant="h6" color="inherit" className={classes.grow}>
+                                        <Link to="/home">Home</Link>
+                                    </Typography>
+                                    <RenderUser datauser={this.props.datauser} />
+                                </Toolbar>
+                            </AppBar>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         );
     }
 

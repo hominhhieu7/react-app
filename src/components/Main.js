@@ -6,16 +6,17 @@ import Home from './Home';
 import Header from '../container/Header';
 import LeftMenu from '../container/Leftmenu';
 import LoginPage from '../page/LoginPage';
+import Comments from './Comments';
 
 const mapstateToProps = state => {
     return {
         auth: state.auth,
-
     }
 }
 const mapDishpatchToProps = ({
     login: (username, password) => login(username, password),
-    changeTheme: (id, theme) => changeTheme(id, theme)
+    changeTheme: (id, theme) => changeTheme(id, theme),
+    
 })
 
 class Main extends Component {
@@ -27,11 +28,15 @@ class Main extends Component {
                 <LoginPage login={this.props.login} />
             );
         }
+        const CommentPage = () => {
+            return (
+                <Comments/>
+            );
+        }
         return (
-            <div>
+            <div className="container-fluid" style={{ paddingRight: 0, paddingLeft: 0 }}>
                 <Header datauser={this.props.auth.datauser} theme={this.props.auth.theme} />
-                <LeftMenu />
-                <Switch>
+                <Switch >
                     <Route path="/login" component={Login} />
                     <Route path="/home" component={(props) =>
                         <Home
@@ -40,9 +45,12 @@ class Main extends Component {
                             datauser={this.props.auth.datauser}
                             theme={this.props.auth.theme}>
                         </Home>
+
                     } />
+                    <Route path="/comments" component={CommentPage} />
                     <Redirect to="/login" />
                 </Switch>
+                <LeftMenu />
             </div>
         );
     }

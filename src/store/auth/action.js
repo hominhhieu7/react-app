@@ -52,7 +52,6 @@ export const login = (username, password) => async (dishpatch) => {
             if (user) {
                 dishpatch(requestSuccess(user));
                 alert("Success");
-                
                 // history.push('/home');
             }
             else {

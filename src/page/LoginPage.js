@@ -8,13 +8,13 @@ class LoginPage extends Component {
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
     }
-    componentWillReceiveProps(nextProps) {
-        console.log(nextProps);
-        console.log(this.props);
-    }
-    componentDidMount(){
-        console.log(this.props);
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(nextProps);
+    //     console.log(this.props);
+    // }
+    // componentDidMount(){
+    //     console.log(this.props);
+    // }
     handleLogin = () => {
          this.props.login(this.username.value, this.password.value);
          this.props.history.push("/home");
